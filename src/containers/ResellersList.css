@@ -1,0 +1,11 @@
+.bookslist {
+  margin: 30px 60px;
+}
+.supplier-list {
+  min-height: 65vh;
+}
+.btn-add-reseller {
+  background-color: brown;
+  font-size: 2rem;
+  float: right;
+}

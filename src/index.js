@@ -5,17 +5,26 @@ import App from "./App";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
-// import getId from "./utils/getId";
+import getId from "./utils/getId";
 
-// const initialState = {
-//   books: [
-//     { id: getId(), title: "The Last Flight", category: "Action" },
-//     { id: getId(), title: "Chronicles of Narnia", category: "History" }
-//   ],
-//   filter: "All"
-// };
+const initialState = {
+  resellers: [
+    {
+      id: getId(),
+      name: "Bangalore Stores",
+      hdNumber: "9876543210",
+      hdEmail: "bang@elite.com"
+    },
+    {
+      id: getId(),
+      name: "Karnataka Agencies",
+      hdNumber: "9876543210",
+      hdEmail: "ktk@elite.com"
+    }
+  ]
+};
 
-const store = createStore(reducer);
+const store = createStore(reducer, initialState);
 
 ReactDOM.render(
   <Provider store={store}>

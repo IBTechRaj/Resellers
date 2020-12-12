@@ -1,6 +1,6 @@
-const suppliers = (state = [], action) => {
+const resellers = (state = [], action) => {
   switch (action.type) {
-    case "CREATE_SUPPLIER":
+    case "CREATE_RESELLER":
       return [
         ...state,
         {
@@ -17,4 +17,4 @@ const suppliers = (state = [], action) => {
   }
 };
 
-export default suppliers;
+export default resellers;
