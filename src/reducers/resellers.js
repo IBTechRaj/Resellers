@@ -1,4 +1,5 @@
 const resellers = (state = [], action) => {
+  console.log(action);
   switch (action.type) {
     case "CREATE_RESELLER":
       return [
@@ -6,8 +7,9 @@ const resellers = (state = [], action) => {
         {
           id: action.id,
           name: action.name,
-          number: action.hdNumber,
-          email: action.hdMail
+          hdNumber: action.hdNumber,
+          hdEmail: action.hdEmail,
+          logo: action.logo
         }
       ];
     //   case 'REMOVE_BOOK':

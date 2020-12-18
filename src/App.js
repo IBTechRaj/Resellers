@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ResellersList from "./containers/ResellersList";
 import ResellerForm from "./containers/ResellerForm";
+// import RePhoto from "./containers/RePhoto";
 
 class App extends Component {
   render() {
@@ -28,17 +29,7 @@ class App extends Component {
               path="/ResellerForm"
               render={props => <ResellerForm />}
             />
-            {/*
-              <Route
-                exact
-                path="/Products"
-                render={props => (
-                  <Products
-                  
-                  />
-                )}
-              />
-               */}
+            {/* <Route exact path="/RePhoto" render={props => <RePhoto />} /> */}
           </Switch>
           <Footer />
         </div>

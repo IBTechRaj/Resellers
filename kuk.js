@@ -5,31 +5,12 @@ import { createReseller } from "../actions";
 import "./ResellerForm.css";
 import LogoUpload from "./LogoUpload";
 
-import history from "../history";
-
-class ResellerForm extends React.Component {
+class kuk extends React.Component {
   constructor() {
     super();
-    this.state = { name: "", hdNumber: "", hdEmail: "", logo: "" };
-    // this.state = {
-    //   resellerInfo: { name: "", hdNumber: "", hdEmail: "", logo: "" }
-    // this.getImage = this.getImage.bind(this);
+    this.state = { name: "", hdNumber: "", hdEmail: "" };
   }
 
-  // const[logo, setLogo] = useState ("" );
-
-  // const getImage = logoImg => setLogo( logoImg );
-
-  getImage = logoImg => {
-    console.log("loog", logoImg);
-
-    this.setState(() => ({
-      ...this.state,
-      logo: logoImg
-    }));
-
-    console.log(this.state.logo);
-  };
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
@@ -39,77 +20,86 @@ class ResellerForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // this.setState({
-    //   logo: this.logoImg
-    // });
-    const { name, hdNumber, hdEmail, logo } = this.state;
+    const { name, hdNumber, hdEmail } = this.state;
     const { createReseller } = this.props;
 
-    if (name && hdNumber && hdEmail && logo) {
-      createReseller(name, hdNumber, hdEmail, logo);
+    if (name && hdNumber && hdEmail) {
+      createReseller(name, hdNumber, hdEmail);
       this.setState({
         name: "",
         hdNumber: "",
-        hdEmail: "",
-        logo: ""
+        hdEmail: ""
       });
-      // this.redirect();
     }
-  };
-  redirect = () => {
-    history.push("/ResellersList");
   };
 
   render() {
+    const { name, hdNumber, hdEmail } = this.state;
+
     return (
       <div className="container-fluid row bg-color W-100 reseller-form">
         <div>
           <h2> Add Reseller </h2>
 
-          <h3> Detailse</h3>
+          <h3> Detailst</h3>
         </div>
-        <div className="reseller-form col-md-6 bg-white">
-          <form onSubmit={this.handleSubmit}>
+        <div className="books-form col-md-6 bg-white">
+          {/* <div className="ab-title col-md-9"> ADD RESELLER </div> */}
+          {/* <Form onSubmit={this.handleSubmit}> */}
+          {/* <Form.Group controlId="exampleForm.ControlInput1">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="name@example.com" />
+            </Form.Group> */}
+
+          {/*             
             <label className="justify-left w-100 px-5">
               {" "}
               RESELLER NAME *
               <input
                 type="text"
                 name="name"
-                value={this.state.name}
+                value={name}
                 onChange={this.handleChange}
+                // placeholder="Name"
               />
             </label>
             <label className="justify-left w-100 px-5">
               {" "}
-              TELEPHONE *
+              EMAIL ADDRESS *
               <input
                 type="text"
                 name="hdNumber"
-                value={this.state.hdNumber}
+                value={hdNumber}
                 onChange={this.handleChange}
+                // placeholder="HelpDeskNumber"
               />
             </label>
             <label className="justify-left w-100 px-5">
               {" "}
-              EMAIL
+              TELEPHONE
               <input
                 type="text"
                 name="hdEmail"
-                value={this.state.hdEmail}
+                value={hdEmail}
                 onChange={this.handleChange}
+                // placeholder="HelpDeskEmail"
               />
             </label>
             <label className="justify-left w-100 px-5">LOGO</label>
-            <LogoUpload uploadImage={this.getImage} />
-            <button type="submit" value="ADD RESELLER" className="add-reseller">
-              Add Reseller{" "}
-            </button>
-          </form>
+            <LogoUpload /> */}
+          <button type="submit" value="ADD RESELLER" className="add-reseller">
+            Add Reseller{" "}
+          </button>
+          {/* </Form> */}
         </div>
+        {/* </div> */}
       </div>
     );
   }
 }
 
-export default connect(null, { createReseller })(ResellerForm);
+// BooksForm.propTypes = {
+//   createBook: PropTypes.func.isRequired,
+// };
+
+export default connect(null, { createReseller })(kuk);

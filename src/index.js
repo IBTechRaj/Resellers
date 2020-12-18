@@ -6,6 +6,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 import getId from "./utils/getId";
+import { storage } from "./firebase";
 
 const initialState = {
   resellers: [
@@ -13,13 +14,15 @@ const initialState = {
       id: getId(),
       name: "Bangalore Stores",
       hdNumber: "9876543210",
-      hdEmail: "bang@elite.com"
+      hdEmail: "bang@elite.com",
+      logo: "https://picsum.photos/150/150?2"
     },
     {
       id: getId(),
       name: "Karnataka Agencies",
       hdNumber: "9876543210",
-      hdEmail: "ktk@elite.com"
+      hdEmail: "ktk@elite.com",
+      logo: "https://picsum.photos/150/150?1"
     }
   ]
 };

@@ -1,36 +1,44 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab&display=swap");
 
-.book-panel {
+.reseller-panel {
   width: 1200px;
-  height: 120px;
+  height: 25px;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: #fff;
   margin: 30px auto;
 }
 
-.category {
-  width: 49px;
-  height: 18px;
-  opacity: 0.5;
-  font-family: Montserrat, sans-serif;
-  font-size: 14px;
-  font-weight: bold;
+.reseller-name {
+  width: 197px;
+  height: 20px;
+  font-family: RobotoSlab, sans-serif;
+  font-size: 1.5rem;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
-  letter-spacing: normal;
+  letter-spacing: -0.2px;
   color: var(--black-three);
   margin-left: 15px;
-  margin-top: 30px;
 }
 
-.title {
+.reseller-hdNumber {
   width: 197px;
-  height: 29px;
+  height: 20px;
   font-family: RobotoSlab, sans-serif;
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  color: var(--black-three);
+  margin-left: 15px;
+}
+.reseller-hdEmail {
+  width: 197px;
+  height: 20px;
+  font-family: RobotoSlab, sans-serif;
+  font-size: 1.5rem;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
@@ -43,7 +51,7 @@ button {
   padding-right: 10px;
   background-color: white;
   border: none;
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   font-size: 12px;
   font-weight: 300;
   color: #4386bf;
@@ -63,7 +71,7 @@ button {
   color: #4386bf;
   border-right: solid grey 1px;
 }
-
+/* 
 .remove {
   width: 54px;
   height: 19px;
@@ -77,7 +85,7 @@ button {
   color: #4386bf;
   margin-left: 15px;
   border-right: solid grey 1px;
-}
+} */
 
 .edit {
   width: 27px;

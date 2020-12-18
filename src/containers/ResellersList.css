@@ -1,7 +1,7 @@
-.bookslist {
+/* .bookslist {
   margin: 30px 60px;
-}
-.supplier-list {
+} */
+.reseller-list {
   min-height: 65vh;
 }
 .btn-add-reseller {
@@ -9,3 +9,4 @@
   font-size: 2rem;
   float: right;
 }
+/* #F2F2F2 */

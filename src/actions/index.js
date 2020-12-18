@@ -1,11 +1,12 @@
 import getId from "../utils/getId";
 
-export const createReseller = (name, hdNumber, hdMail) => ({
+export const createReseller = (name, hdNumber, hdEmail, logo) => ({
   type: "CREATE_RESELLER",
   id: getId(),
   name,
   hdNumber,
-  hdMail
+  hdEmail,
+  logo
 });
 
 // export const removeBook = id => ({
