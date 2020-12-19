@@ -47,13 +47,13 @@ class ResellerForm extends React.Component {
 
     if (name && hdNumber && hdEmail && logo) {
       createReseller(name, hdNumber, hdEmail, logo);
-      this.setState({
-        name: "",
-        hdNumber: "",
-        hdEmail: "",
-        logo: ""
-      });
-      // this.redirect();
+      // this.setState({
+      //   name: "",
+      //   hdNumber: "",
+      //   hdEmail: "",
+      //   logo: ""
+      // });
+      this.redirect();
     }
   };
   redirect = () => {
@@ -62,15 +62,29 @@ class ResellerForm extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid row bg-color W-100 reseller-form">
-        <div>
-          <h2> Add Reseller </h2>
-
-          <h3> Detailse</h3>
-        </div>
-        <div className="reseller-form col-md-6 bg-white">
+      <div className="container-fluid row bg-white W-100 reseller-form justify-content-center my-0">
+        {/* <div className="col-md-3 my-0" style={{ height: "2em" }}></div> */}
+        {/* <div
+          className=" row bg-color my-0  justify-content-center "
+          style={{ height: "2em" }}
+        >
+          
+        </div> */}
+        {/* <div className="col-md-3 my-0" style={{ height: "2em" }}></div> */}
+        {/* <h2 className="mx-auto my-0"> Add Reseller </h2> */}
+        {/* <br /> */}
+        {/* <h3 className="mx-auto my-0"> Details</h3> */}
+        {/* <div className="col-md-3"></div> */}
+        <div className=" col-md-6 bg-white my-0 justify-content-center">
           <form onSubmit={this.handleSubmit}>
-            <label className="justify-left w-100 px-5">
+            <label className="justify-left w-100 my-1">
+              <h2>Add Reseller</h2>
+            </label>
+            <label className="justify-left w-100 my-1">
+              <h3>Details</h3>
+            </label>
+
+            <label className="justify-left w-100 px-3">
               {" "}
               RESELLER NAME *
               <input
@@ -80,7 +94,7 @@ class ResellerForm extends React.Component {
                 onChange={this.handleChange}
               />
             </label>
-            <label className="justify-left w-100 px-5">
+            <label className="justify-left w-100 px-3">
               {" "}
               TELEPHONE *
               <input
@@ -90,7 +104,7 @@ class ResellerForm extends React.Component {
                 onChange={this.handleChange}
               />
             </label>
-            <label className="justify-left w-100 px-5">
+            <label className="justify-left w-100 px-3">
               {" "}
               EMAIL
               <input
@@ -107,6 +121,7 @@ class ResellerForm extends React.Component {
             </button>
           </form>
         </div>
+        <div className="col-md-3"></div>
       </div>
     );
   }

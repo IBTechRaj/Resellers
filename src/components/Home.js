@@ -20,7 +20,7 @@ const Home = props => {
   //   // .catch(error => console.log(error));
   // };
   return (
-    <div className="container-fluid  header-bg text-white font-weight-bold h-100 mb-0 home-height">
+    <div className="container-fluid  header-bg text-white font-weight-bold h-100 mb-5 home-height">
       <br></br>
       <div className=" text-white">
         {/* {props.loggedInStatus ? (
@@ -31,13 +31,13 @@ const Home = props => {
           </div>
         ) : ( */}
         <div>
-          <div className="p-3 mb-2 mb-3 bg-dark text-white">
+          <div className="p-3 my-5 bg-dark text-white text-center">
             <Link to="/ResellersList" style={{ color: "white" }}>
               Manage Resellers
             </Link>
           </div>
           <br></br>
-          <div className="p-3 mb-2 mb-2 bg-dark text-white">
+          <div className="p-3 my-5 bg-dark text-white text-center">
             <Link to="/Products" style={{ color: "white" }}>
               Manage Products
             </Link>

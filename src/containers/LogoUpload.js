@@ -47,23 +47,27 @@ const LogoUpload = ({ uploadImage }) => {
 
   return (
     <div>
-      <progress value={progress} max="100" />
-      <br />
-      <br />
-      <input type="file" onChange={handleChange} />
-      {console.log("lu", url)}
-      {/* {uploadImage( url )}; */}
-      <button onClick={handleUpload}>Upload</button>
-      <br />
-      {/* {url} */}
-      {console.log("url", url)}
-      <br />
+      <progress style={{ marginLeft: "35px" }} value={progress} max="100" />
+      {/* <br />
+      <br /> */}
       <img
         src={url || "http://via.placeholder.com/30"}
         width="30"
         height="30"
         alt="firebase-image"
       />
+      <input
+        style={{ marginLeft: "25px" }}
+        type="file"
+        onChange={handleChange}
+      />
+      {/* {console.log("lu", url)} */}
+      {/* {uploadImage( url )}; */}
+      <button onClick={handleUpload}>Upload</button>
+      <br />
+      {/* {url} */}
+      {/* {console.log("url", url)} */}
+      <br />
     </div>
   );
 };
