@@ -1,21 +1,53 @@
 import React from "react";
 import { connect } from "react-redux";
+// import axios from "axios";
 // import PropTypes from 'prop-types';
-import { createReseller } from "../actions";
+import { updateReseller } from "../actions";
 import "./ResellerForm.css";
 import LogoUpload from "./LogoUpload";
 
 import history from "../history";
 
-class ResellerForm extends React.Component {
-  constructor() {
+class EditReseller extends React.Component {
+  constructor(props) {
     super();
-    this.state = { name: "", hdNumber: "", hdEmail: "", logo: "" };
+    console.log("propu", props.history.location.state.reseller);
+    // const { reseller } = props.history.location.state.reseller;
+
+    // console.log("re", reseller);
+    this.state = { id: "", name: "", hdNumber: "", hdEmail: "", logo: "" };
+    // const { name, hdNumber, hdEmail, logo } = this.props.location.state;
   }
-
-  // const[logo, setLogo] = useState ("" );
-
-  // const getImage = logoImg => setLogo( logoImg );
+  // componentDidMount() {
+  //   axios
+  //     .get(
+  //       "http://localhost:3000/get-document-by-id?id=" +
+  //         this.props.match.params.id
+  //     )
+  //     .then(response => {
+  //       this.setState({
+  //         name: response.data.document_title,
+  //         hdNumber: response.data.hdNumber,
+  //         hdEmail: response.data.hdEmail,
+  //         logo: response.data.logo
+  //       });
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }
+  componentDidMount() {
+    this.setState({
+      id: this.props.history.location.state.reseller.id,
+      name: this.props.history.location.state.reseller.name,
+      hdNumber: this.props.history.location.state.reseller.hdNumber,
+      hdEmail: this.props.history.location.state.reseller.hdEmail,
+      logo: this.props.history.location.state.reseller.logo
+    });
+  }
+  //   console.log("re", reseller);
+  // }
+  // }
 
   getImage = logoImg => {
     console.log("loog", logoImg);
@@ -39,37 +71,31 @@ class ResellerForm extends React.Component {
     // this.setState({
     //   logo: this.logoImg
     // });
-    const { name, hdNumber, hdEmail, logo } = this.state;
-    const { createReseller } = this.props;
+    const { id, name, hdNumber, hdEmail, logo } = this.state;
+    const { updateReseller } = this.props;
 
-    if (name && hdNumber && hdEmail && logo) {
-      createReseller(name, hdNumber, hdEmail, logo);
-      // this.redirect();
+    if (id && name && hdNumber && hdEmail && logo) {
+      updateReseller(id, name, hdNumber, hdEmail, logo);
+      // this.setState({
+      //   name: "",
+      //   hdNumber: "",
+      //   hdEmail: "",
+      //   logo: ""
+      // });
+      this.redirect();
     }
   };
   redirect = () => {
-    history.replace("/ResellersList");
+    history.push("/ResellersList");
   };
 
   render() {
     return (
       <div className="container-fluid row bg-white W-100 reseller-form justify-content-center my-0">
-        {/* <div className="col-md-3 my-0" style={{ height: "2em" }}></div> */}
-        {/* <div
-          className=" row bg-color my-0  justify-content-center "
-          style={{ height: "2em" }}
-        >
-          
-        </div> */}
-        {/* <div className="col-md-3 my-0" style={{ height: "2em" }}></div> */}
-        {/* <h2 className="mx-auto my-0"> Add Reseller </h2> */}
-        {/* <br /> */}
-        {/* <h3 className="mx-auto my-0"> Details</h3> */}
-        {/* <div className="col-md-3"></div> */}
         <div className=" col-md-6 bg-white my-0 justify-content-center">
           <form onSubmit={this.handleSubmit}>
             <label className="justify-left w-100 my-1">
-              <h2>Add Reseller</h2>
+              <h2>Edit Reseller</h2>
             </label>
             <label className="justify-left w-100 my-1">
               <h3>Details</h3>
@@ -107,8 +133,12 @@ class ResellerForm extends React.Component {
             </label>
             <label className="justify-left w-100 px-5">LOGO</label>
             <LogoUpload uploadImage={this.getImage} />
-            <button type="submit" value="ADD RESELLER" className="add-reseller">
-              Add Reseller{" "}
+            <button
+              type="submit"
+              value="UPDATE RESELLER"
+              className="add-reseller"
+            >
+              Update Reseller{" "}
             </button>
           </form>
         </div>
@@ -118,4 +148,5 @@ class ResellerForm extends React.Component {
   }
 }
 
-export default connect(null, { createReseller })(ResellerForm);
+// export default EditReseller;
+export default connect(null, { updateReseller })(EditReseller);

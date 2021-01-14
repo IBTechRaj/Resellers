@@ -8,7 +8,14 @@ export const createReseller = (name, hdNumber, hdEmail, logo) => ({
   hdEmail,
   logo
 });
-
+export const updateReseller = (id, name, hdNumber, hdEmail, logo) => ({
+  type: "UPDATE_RESELLER",
+  id,
+  name,
+  hdNumber,
+  hdEmail,
+  logo
+});
 // export const removeBook = id => ({
 //   type: 'REMOVE_BOOK',
 //   id,

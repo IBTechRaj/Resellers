@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import PropTypes from "prop-types";
 import "./Reseller.css";
 
@@ -18,9 +19,35 @@ const Reseller = props => {
       />
 
       <div className="col-md-2">
-        <button type="button" className="edit">
+        <div className="btn-add-reseller p-3 mb-2 mb-3 ">
+          <Link
+            to={{
+              pathname: "/EditReseller",
+              state: { reseller: reseller }
+              // style={{ color: "white" }}
+            }}
+          >
+            Edit
+          </Link>
+        </div>
+        {/* <Link
+          to="/EditReseller"
+          {...props}
+          style={{ color: "blue" }}
+          reseller={reseller}
+        >
           Edit
-        </button>
+        </Link> */}
+        {/* <Link
+          to={{
+            pathname: "/EditReseller" + reseller.id */}
+        {/* }} */}
+        {/* Edit
+        </Link> */}
+        {/* <button type="button" className="edit">
+          Edit
+        </button> */}
+        {console.log("r", reseller)}
       </div>
     </div>
   );
