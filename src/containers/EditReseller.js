@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-// import axios from "axios";
 // import PropTypes from 'prop-types';
 import { updateReseller } from "../actions";
 import "./ResellerForm.css";
@@ -14,28 +13,10 @@ class EditReseller extends React.Component {
     console.log("propu", props.history.location.state.reseller);
     // const { reseller } = props.history.location.state.reseller;
 
-    // console.log("re", reseller);
     this.state = { id: "", name: "", hdNumber: "", hdEmail: "", logo: "" };
     // const { name, hdNumber, hdEmail, logo } = this.props.location.state;
   }
-  // componentDidMount() {
-  //   axios
-  //     .get(
-  //       "http://localhost:3000/get-document-by-id?id=" +
-  //         this.props.match.params.id
-  //     )
-  //     .then(response => {
-  //       this.setState({
-  //         name: response.data.document_title,
-  //         hdNumber: response.data.hdNumber,
-  //         hdEmail: response.data.hdEmail,
-  //         logo: response.data.logo
-  //       });
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }
+
   componentDidMount() {
     this.setState({
       id: this.props.history.location.state.reseller.id,
@@ -45,9 +26,6 @@ class EditReseller extends React.Component {
       logo: this.props.history.location.state.reseller.logo
     });
   }
-  //   console.log("re", reseller);
-  // }
-  // }
 
   getImage = logoImg => {
     console.log("loog", logoImg);
@@ -68,20 +46,12 @@ class EditReseller extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // this.setState({
-    //   logo: this.logoImg
-    // });
     const { id, name, hdNumber, hdEmail, logo } = this.state;
     const { updateReseller } = this.props;
 
     if (id && name && hdNumber && hdEmail && logo) {
       updateReseller(id, name, hdNumber, hdEmail, logo);
-      // this.setState({
-      //   name: "",
-      //   hdNumber: "",
-      //   hdEmail: "",
-      //   logo: ""
-      // });
+
       this.redirect();
     }
   };
@@ -148,5 +118,4 @@ class EditReseller extends React.Component {
   }
 }
 
-// export default EditReseller;
 export default connect(null, { updateReseller })(EditReseller);

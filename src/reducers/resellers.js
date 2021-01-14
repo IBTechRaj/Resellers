@@ -22,16 +22,7 @@ const resellers = (state = [], action) => {
         updateBucket,
         ...state.slice(indexU + 1)
       ];
-    //   {
-    //     id: action.id,
-    //     name: action.name,
-    //     hdNumber: action.hdNumber,
-    //     hdEmail: action.hdEmail,
-    //     logo: action.logo
-    //   }
-    // ];
-    //   case 'REMOVE_BOOK':
-    //     return state.filter(book => book.id !== action.id);
+
     default:
       return state;
   }

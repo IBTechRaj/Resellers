@@ -30,23 +30,7 @@ const Reseller = props => {
             Edit
           </Link>
         </div>
-        {/* <Link
-          to="/EditReseller"
-          {...props}
-          style={{ color: "blue" }}
-          reseller={reseller}
-        >
-          Edit
-        </Link> */}
-        {/* <Link
-          to={{
-            pathname: "/EditReseller" + reseller.id */}
-        {/* }} */}
-        {/* Edit
-        </Link> */}
-        {/* <button type="button" className="edit">
-          Edit
-        </button> */}
+
         {console.log("r", reseller)}
       </div>
     </div>

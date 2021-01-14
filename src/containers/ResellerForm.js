@@ -13,10 +13,6 @@ class ResellerForm extends React.Component {
     this.state = { name: "", hdNumber: "", hdEmail: "", logo: "" };
   }
 
-  // const[logo, setLogo] = useState ("" );
-
-  // const getImage = logoImg => setLogo( logoImg );
-
   getImage = logoImg => {
     console.log("loog", logoImg);
 
@@ -36,9 +32,6 @@ class ResellerForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // this.setState({
-    //   logo: this.logoImg
-    // });
     const { name, hdNumber, hdEmail, logo } = this.state;
     const { createReseller } = this.props;
 
@@ -54,18 +47,6 @@ class ResellerForm extends React.Component {
   render() {
     return (
       <div className="container-fluid row bg-white W-100 reseller-form justify-content-center my-0">
-        {/* <div className="col-md-3 my-0" style={{ height: "2em" }}></div> */}
-        {/* <div
-          className=" row bg-color my-0  justify-content-center "
-          style={{ height: "2em" }}
-        >
-          
-        </div> */}
-        {/* <div className="col-md-3 my-0" style={{ height: "2em" }}></div> */}
-        {/* <h2 className="mx-auto my-0"> Add Reseller </h2> */}
-        {/* <br /> */}
-        {/* <h3 className="mx-auto my-0"> Details</h3> */}
-        {/* <div className="col-md-3"></div> */}
         <div className=" col-md-6 bg-white my-0 justify-content-center">
           <form onSubmit={this.handleSubmit}>
             <label className="justify-left w-100 my-1">

@@ -16,12 +16,3 @@ export const updateReseller = (id, name, hdNumber, hdEmail, logo) => ({
   hdEmail,
   logo
 });
-// export const removeBook = id => ({
-//   type: 'REMOVE_BOOK',
-//   id,
-// });
-
-// export const changeFilter = filter => ({
-//   type: 'CHANGE_FILTER',
-//   filter,
-// });
