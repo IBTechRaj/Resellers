@@ -8,6 +8,7 @@ const LogoUpload = ({ uploadImage }) => {
   const [progress, setProgress] = useState(0);
 
   const handleChange = e => {
+    console.log("clicked");
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
     }

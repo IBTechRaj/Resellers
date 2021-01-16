@@ -1,102 +1,107 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 // import PropTypes from 'prop-types';
 import { createReseller } from "../actions";
 import "./ResellerForm.css";
 import LogoUpload from "./LogoUpload";
 
-import history from "../history";
+// import history from "../history";
 
-class ResellerForm extends React.Component {
-  constructor() {
-    super();
-    this.state = { name: "", hdNumber: "", hdEmail: "", logo: "" };
-  }
-
-  getImage = logoImg => {
+const ResellerForm = props => {
+  // constructor() {
+  // super();
+  // this.state = { name: "", hdNumber: "", hdEmail: "", logo: "" };
+  // }
+  let history = useHistory();
+  const getImage = logoImg => {
     console.log("loog", logoImg);
-
-    this.setState(() => ({
-      ...this.state,
-      logo: logoImg
-    }));
-
-    console.log(this.state.logo);
+    setValues({ ...values, logo: logoImg });
+    // this.setState(() => ({
+    //   ...this.state,
+    //   logo: logoImg
+    // }));
+    // console.log(logo);
   };
-  handleChange = e => {
+
+  const handleChange = e => {
     const { name, value } = e.target;
-    this.setState({
-      [name]: value
-    });
+    setValues({ ...values, [name]: value });
   };
 
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    const { name, hdNumber, hdEmail, logo } = this.state;
-    const { createReseller } = this.props;
+    const { name, hdNumber, hdEmail, logo } = values;
+    const { createReseller } = props;
 
     if (name && hdNumber && hdEmail && logo) {
       createReseller(name, hdNumber, hdEmail, logo);
-      // this.redirect();
+      redirect();
     }
   };
-  redirect = () => {
-    history.replace("/ResellersList");
+  const redirect = () => {
+    history.push("/ResellersList");
   };
 
-  render() {
-    return (
-      <div className="container-fluid row bg-white W-100 reseller-form justify-content-center my-0">
-        <div className=" col-md-6 bg-white my-0 justify-content-center">
-          <form onSubmit={this.handleSubmit}>
-            <label className="justify-left w-100 my-1">
-              <h2>Add Reseller</h2>
-            </label>
-            <label className="justify-left w-100 my-1">
-              <h3>Details</h3>
-            </label>
+  const [values, setValues] = useState({
+    name: "",
+    hdNumber: "",
+    hdEmail: "",
+    logo: ""
+  });
+  // render() {
+  return (
+    <div className="container-fluid row bg-white W-100 reseller-form justify-content-center my-0">
+      <div className=" col-md-6 bg-white my-0 justify-content-center">
+        <form onSubmit={handleSubmit}>
+          <label className="justify-left w-100 my-1">
+            <h2>Add Reseller</h2>
+          </label>
+          <label className="justify-left w-100 my-1">
+            <h3>Details</h3>
+          </label>
 
-            <label className="justify-left w-100 px-3">
-              {" "}
-              RESELLER NAME *
-              <input
-                type="text"
-                name="name"
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
-            </label>
-            <label className="justify-left w-100 px-3">
-              {" "}
-              TELEPHONE *
-              <input
-                type="text"
-                name="hdNumber"
-                value={this.state.hdNumber}
-                onChange={this.handleChange}
-              />
-            </label>
-            <label className="justify-left w-100 px-3">
-              {" "}
-              EMAIL
-              <input
-                type="text"
-                name="hdEmail"
-                value={this.state.hdEmail}
-                onChange={this.handleChange}
-              />
-            </label>
-            <label className="justify-left w-100 px-5">LOGO</label>
-            <LogoUpload uploadImage={this.getImage} />
-            <button type="submit" value="ADD RESELLER" className="add-reseller">
-              Add Reseller{" "}
-            </button>
-          </form>
-        </div>
-        <div className="col-md-3"></div>
+          <label className="justify-left w-100 px-3">
+            {" "}
+            RESELLER NAME *
+            <input
+              type="text"
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+            />
+          </label>
+          <label className="justify-left w-100 px-3">
+            {" "}
+            TELEPHONE *
+            <input
+              type="text"
+              name="hdNumber"
+              value={values.hdNumber}
+              onChange={handleChange}
+            />
+          </label>
+          <label className="justify-left w-100 px-3">
+            {" "}
+            EMAIL
+            <input
+              type="text"
+              name="hdEmail"
+              value={values.hdEmail}
+              onChange={handleChange}
+            />
+          </label>
+          <label className="justify-left w-100 px-5">LOGO</label>
+          <LogoUpload uploadImage={getImage} />
+          <button type="submit" value="ADD RESELLER" className="add-reseller">
+            Add Reseller{" "}
+          </button>
+        </form>
       </div>
-    );
-  }
-}
+      <div className="col-md-3"></div>
+    </div>
+  );
+  // }
+};
 
 export default connect(null, { createReseller })(ResellerForm);
